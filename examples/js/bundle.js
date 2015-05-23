@@ -64,7 +64,7 @@ module.exports = angular.module('myApp');
 
 },{"../../dist/lib/core-layout.js":2,"./components/drawer/drawer.js":12,"./components/header/header.js":14,"./components/version/version.js":16,"./demos/demos.js":17,"./home/home.js":21,"angular-messages":5,"angular-ui-router":6,"angular-x":7,"bootstrap":9,"lodash":11}],2:[function(require,module,exports){
 /**
- * @license core-layout-probe v4.2.1, 2015-05-23T12:54:06+0200
+ * @license core-layout-probe v4.3.0, 2015-05-23T22:20:18+0200
  * (c) 2015 Martin Thorsen Ranang <mtr@ranang.org>
  * License: MIT
  */
@@ -57533,8 +57533,8 @@ module.exports = angular
     .module('myApp.version', [
         require('./version.directive.js').name
     ])
-    .value('version', '4.2.1')
-    .value('buildTimestamp', '2015-05-23T12:54:12+0200');
+    .value('version', '4.3.0')
+    .value('buildTimestamp', '2015-05-23T22:20:21+0200');
 
 },{"./version.directive.js":15,"angular-x":7}],17:[function(require,module,exports){
 'use strict';
