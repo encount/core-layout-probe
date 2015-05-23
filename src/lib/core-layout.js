@@ -3,11 +3,11 @@
     // Using the Universal Module Definition pattern from
     // https://github.com/umdjs/umd/blob/master/returnExports.js
     if (typeof define === 'function' && define.amd) {
-        define(['angular', 'angular-iscroll', 'lodash'], factory);
+        define(['angular', 'angular-iscroll-probe', 'lodash'], factory);
     } else if (typeof exports === 'object') {
         module.exports = factory(
             require('angular'),
-            require('angular-iscroll'),
+            require('angular-iscroll-probe'),
             require('lodash'));
     } else {
         // Browser globals (root is window)

@@ -1,7 +1,7 @@
 {
-  "name": "core-layout",
+  "name": "core-layout-probe",
   "version": "4.2.1",
-  "description": "A responsive AngularJS layout component for a simple, yet non-trivial, Web-app that works well on both small (mobile) and larger screens.",
+  "description": "A version of core-layout that depends on angular-iscroll-probe.",
   "main": "dist/lib/core-layout.js",
   "scripts": {
     "prepublish": "gulp",
@@ -28,10 +28,10 @@
   "bugs": {
     "url": "https://github.com/mtr/core-layout/issues"
   },
-  "homepage": "https://github.com/mtr/core-layout",
+  "homepage": "https://github.com/OnLiveResearch/core-layout-probe",
   "dependencies": {
     "angular": ">=1.2",
-    "angular-iscroll": "^1.2.4",
+    "angular-iscroll-probe": "^1.2.4",
     "angular-ui-router": "^0.2.13",
     "lodash": ">=2.4.1"
   },
