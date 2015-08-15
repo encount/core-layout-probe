@@ -1,5 +1,5 @@
 /**
- * @license core-layout-probe v4.3.0, 2015-05-23T22:20:18+0200
+ * @license core-layout v4.4.0, 2015-08-15T18:14:43+0200
  * (c) 2015 Martin Thorsen Ranang <mtr@ranang.org>
  * License: MIT
  */
@@ -9,11 +9,11 @@
     // Using the Universal Module Definition pattern from
     // https://github.com/umdjs/umd/blob/master/returnExports.js
     if (typeof define === 'function' && define.amd) {
-        define(['angular', 'angular-iscroll-probe', 'lodash'], factory);
+        define(['angular', 'angular-iscroll', 'lodash'], factory);
     } else if (typeof exports === 'object') {
         module.exports = factory(
             require('angular'),
-            require('angular-iscroll-probe'),
+            require('angular-iscroll'),
             require('lodash'));
     } else {
         // Browser globals (root is window)
@@ -70,10 +70,26 @@
             _mergeStateIfProvided(configChanges);
         }
 
+        function _mayChangeDrawerState(drawerId, doOpen) {
+            var drawer = _state[drawerId],
+                now = Date.now(),
+                lastActionTimeStamp = drawer.lastActionTimeStamp || 0,
+                isTimedOut =
+                    (now - lastActionTimeStamp) > drawer.debounceTimeout;
+
+            if (isTimedOut) {
+                drawer.lastActionTimeStamp = now;
+            }
+
+            return isTimedOut;
+        }
+
         function _openDrawer(drawerId, configChanges) {
             var drawer = _state[drawerId];
             _mergeStateIfProvided(configChanges, drawer);
-            drawer.show = true;
+            if (_mayChangeDrawerState(drawerId)) {
+                drawer.show = true;
+            }
         }
 
         function _updateDrawer(drawerId, configChanges) {
@@ -82,13 +98,17 @@
 
         function _closeDrawer(drawerId, configChanges) {
             var drawer = _state[drawerId];
-            drawer.show = false;
+            if (_mayChangeDrawerState(drawerId)) {
+                drawer.show = false;
+            }
             _mergeStateIfProvided(configChanges, drawer);
         }
 
         function _toggleDrawer(drawerId) {
             var drawer = _state[drawerId];
-            drawer.show = !drawer.show;
+            if (_mayChangeDrawerState(drawerId)) {
+                drawer.show = !drawer.show;
+            }
         }
 
         function _layoutChanged(name) {
@@ -148,7 +168,8 @@
                 footer: {
                     visible: _defaultExcept(),
                     hidden: _defaultExcept()
-                }
+                },
+                debounceTimeout: 0
             },
             cache = {};
 
