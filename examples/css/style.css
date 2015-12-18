@@ -2451,6 +2451,8 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 
 .iscroll-on .cl-header, .iscroll-on .cl-contents, .iscroll-on .cl-footer { overflow: hidden; }
 
+.iscroll-off .cl-contents { -webkit-overflow-scrolling: touch; }
+
 .core.header .navbar, .core.header .navbar-text { margin-bottom: 0; }
 
 .left-drawer-toggle { float: left; margin-left: 15px; }
