@@ -1,5 +1,5 @@
 /**
- * @license core-layout-probe v5.0.0, 2015-12-16T12:01:18+0100
+ * @license core-layout v5.3.0, 2015-12-18T10:46:21+0100
  * (c) 2015 Martin Thorsen Ranang <mtr@ranang.org>
  * License: MIT
  */
@@ -9,11 +9,11 @@
     // Using the Universal Module Definition pattern from
     // https://github.com/umdjs/umd/blob/master/returnExports.js
     if (typeof define === 'function' && define.amd) {
-        define(['angular', 'angular-iscroll-probe', 'lodash'], factory);
+        define(['angular', 'angular-iscroll', 'lodash'], factory);
     } else if (typeof exports === 'object') {
         module.exports = factory(
             require('angular'),
-            require('angular-iscroll-probe'),
+            require('angular-iscroll'),
             require('lodash'));
     } else {
         // Browser globals (root is window)
