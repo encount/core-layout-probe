@@ -1,6 +1,6 @@
 /**
- * @license core-layout-probe v5.3.0, 2015-12-18T12:01:40+0100
- * (c) 2015 Martin Thorsen Ranang <mtr@ranang.org>
+ * @license core-layout v5.4.1, 2016-01-22T23:12:52+0100
+ * (c) 2016 Martin Thorsen Ranang <mtr@ranang.org>
  * License: MIT
  */
 (function (module, window) {'use strict'; module.exports = angular.module('coreLayout.templates', []).run(['$templateCache', function($templateCache) { $templateCache.put("core-layout.html","<div class=\"cl-header\" ui-view=\"{{::names.header}}\"></div><div class=\"cl-contents\" ui-view=\"{{::names.contents}}\"></div><div class=\"cl-footer\" ui-view=\"{{::names.footer}}\"></div>");}]); })(module, window);
@@ -9,11 +9,11 @@
     // Using the Universal Module Definition pattern from
     // https://github.com/umdjs/umd/blob/master/returnExports.js
     if (typeof define === 'function' && define.amd) {
-        define(['angular', 'angular-iscroll-probe', 'lodash'], factory);
+        define(['angular', 'angular-iscroll', 'lodash'], factory);
     } else if (typeof exports === 'object') {
         module.exports = factory(
             require('angular'),
-            require('angular-iscroll-probe'),
+            require('angular-iscroll'),
             require('lodash'));
     } else {
         // Browser globals (root is window)
@@ -25,6 +25,9 @@
 }(this, function (angular, angularIscroll, _) {
     'use strict';
 
+    CoreLayoutService.$inject = ["$rootScope", "iScrollService"];
+    coreLayout.$inject = ["$rootScope", "coreLayoutService"];
+    coreLayoutClose.$inject = ["$state", "coreLayoutService"];
     function _defaultExcept(options, defaultValue) {
         options = options || {};
         defaultValue = angular.isDefined(defaultValue) ? defaultValue : false;
@@ -135,7 +138,6 @@
             defaultExcept: _defaultExcept
         };
     }
-    CoreLayoutService.$inject = ["$rootScope", "iScrollService"];
 
     var defaultsDeep = _.partialRight(_.merge, function deep(value, other) {
         return _.merge(value, other, deep);
@@ -249,7 +251,6 @@
             templateUrl: 'core-layout.html'
         };
     }
-    coreLayout.$inject = ["$rootScope", "coreLayoutService"];
 
     /* @ngInject */
     function coreLayoutClose($state, coreLayoutService) {
@@ -266,7 +267,6 @@
             }
         };
     }
-    coreLayoutClose.$inject = ["$state", "coreLayoutService"];
 
     return angular
         .module('coreLayout', [angularIscroll.name, 'coreLayout.templates'])
