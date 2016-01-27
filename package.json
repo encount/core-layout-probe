@@ -1,6 +1,6 @@
 {
   "name": "core-layout-probe",
-  "version": "5.4.1",
+  "version": "5.5.0",
   "description": "A version of core-layout that depends on angular-iscroll-probe.",
   "main": "dist/lib/core-layout.js",
   "scripts": {
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/OnLiveResearch/core-layout-probe",
   "dependencies": {
     "angular": ">=1.2",
-    "angular-iscroll-probe": "^3.1.0",
+    "angular-iscroll-probe": "^3.2.0",
     "angular-ui-router": "^0.2.15",
     "lodash": "^3.10.1"
   },
