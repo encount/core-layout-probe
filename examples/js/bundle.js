@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
- * @license core-layout-probe v5.4.1, 2016-01-22T23:36:56+0100
+ * @license core-layout-probe v5.5.0, 2016-01-27T15:01:48+0100
  * (c) 2016 Martin Thorsen Ranang <mtr@ranang.org>
  * License: MIT
  */
@@ -63104,17 +63104,22 @@ return jQuery;
 'use strict';
 
 config.$inject = ["$urlRouterProvider", "iScrollServiceProvider"];
-MyAppController.$inject = ["iScrollService", "coreLayoutService"];
+MyAppController.$inject = ["$rootScope", "iScrollService", "coreLayoutService"];
 var angular = require('angular-x'),
     _ = require('lodash');
 
 require('bootstrap');
 require('angular-messages');
 
+var _platform;
+
 /* @ngInject */
 function config($urlRouterProvider, iScrollServiceProvider) {
     // For any unmatched url, redirect to '/'.
     $urlRouterProvider.otherwise('/');
+
+    _platform = iScrollServiceProvider.platform;
+
     iScrollServiceProvider.configureDefaults({
         iScroll: {
             momentum: true,
@@ -63141,10 +63146,15 @@ function config($urlRouterProvider, iScrollServiceProvider) {
      */
 }
 
-function MyAppController(iScrollService, coreLayoutService) {
+function MyAppController($rootScope, iScrollService, coreLayoutService) {
     var vm = this;  // Use 'controller as' syntax.
 
     vm.iScrollState = iScrollService.state;
+
+    if (angular.isDefined(_platform)) {
+        $rootScope.platform = _platform;
+    }
+
     vm.layout = coreLayoutService.state;
 }
 
@@ -63273,8 +63283,8 @@ module.exports = angular
     .module('myApp.version', [
         require('./version.directive.js').name
     ])
-    .value('version', '5.4.1')
-    .value('buildTimestamp', '2016-01-22T23:37:00+0100');
+    .value('version', '5.5.0')
+    .value('buildTimestamp', '2016-01-27T15:01:51+0100');
 
 },{"./version.directive.js":16,"angular-x":7}],18:[function(require,module,exports){
 'use strict';
@@ -63449,6 +63459,7 @@ function HomeController($scope, $log, iScrollService, coreLayoutService) {
     $scope.iScrollState = iScrollService.state;
     $scope.toggleIScroll = iScrollService.toggle;
     $scope.drawers = coreLayoutService.state;
+    $scope.toJson = angular.toJson;
 }
 
 /* @ngInject */
