@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mtr/core-layout.git"
+    "url": "https://github.com/OnLiveResearch/core-layout-probe.git"
   },
   "keywords": [
     "layout",
@@ -29,7 +29,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mtr/core-layout/issues"
+    "url": "https://github.com/OnLiveResearch/core-layout-probe/issues"
   },
   "homepage": "https://github.com/OnLiveResearch/core-layout-probe",
   "browserslist": "> 0.5%, last 3 versions, Firefox ESR, not dead",
