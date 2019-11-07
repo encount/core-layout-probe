@@ -3,7 +3,7 @@
 import angular from 'angular';
 import 'bootstrap-sass';
 import uiRouter from '@uirouter/angularjs';
-import angularIscroll from 'angular-iscroll';
+import angularIscroll from 'angular-iscroll-probe';
 
 import coreLayout from '../../dist/lib/core-layout.js';
 import ngMessages from 'angular-messages';
