@@ -984,10 +984,10 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
-angular-iscroll@^3.8.1:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/angular-iscroll/-/angular-iscroll-3.8.3.tgz#26d20cbad62492fff3658f03e626426e71fb2dcc"
-  integrity sha512-Ow49D2wQ5DTeL0giPGYHmKLdWvCgAEVXjbMkoKlWxsVnBpkK77S0mOSPfY8zqQQMUkVU1kdZ0eRh6JMw3PwFqw==
+angular-iscroll-probe@^3.8.4:
+  version "3.8.4"
+  resolved "https://registry.yarnpkg.com/angular-iscroll-probe/-/angular-iscroll-probe-3.8.4.tgz#f8ec4efddc68265d9b70513c8e542633c926f970"
+  integrity sha512-QLqkKMzeVhYwVZhzgFJRSzlY3mW/jkKFZz2Rv0Wqj+yrqL/ONvoJiMciWwBd24d6OWM73kWvUWtgzyXc9ST1/g==
   dependencies:
     iscroll "^5.2.0"
     platform "^1.3.5"
