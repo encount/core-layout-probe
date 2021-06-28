@@ -1,6 +1,6 @@
 {
   "name": "core-layout-probe",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "A version of core-layout that depends on angular-iscroll-probe.",
   "module": "src/lib/core-layout.js",
   "scripts": {
