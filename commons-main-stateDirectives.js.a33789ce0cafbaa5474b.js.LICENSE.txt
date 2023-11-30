@@ -1,0 +1,5 @@
+/*!
+ * @license core-layout-probe v7.0.1, 2023-11-30T08:52:42+0100
+ * (c) 2023 Martin Thorsen Ranang <mtr@ranang.org>
+ * License: MIT
+ */
